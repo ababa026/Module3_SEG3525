@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		window.onload = function() {
+	document.getElementById('client').click();}
+</script>
+	<h1>Amine's groceries</h1>
+</head>
+
+<body>
+
+<!-- Tab links, each one with an onclick event associated with it -->
+<div class="tab">
+  <button class="tablinks" onclick="openInfo(event, 'Client')" id=client>Step 1 Preference</button>
+  <button class="tablinks"onclick="openInfo(event, 'Products')" id=products>Step 2 Products</button>
+  <button class="tablinks" onclick="openInfo(event, 'Cart')" id=cart>Step 3 Cart</button>
+</div>
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+
+  <h3>Client Information</h3>
+  <p>Tell us a bit about you.</p>
+	Choose a Preference:
+	<br>
+<input type="radio" id="vehicle1" name="vehicle1" value="Organic" onclick="populateListProductChoices(this.id, 'displayProduct')">
+<label for="vehicle1"> Organic</label><br>
+<input type="radio" id="vehicle2" name="vehicle1" value="NutFree"onclick="populateListProductChoices(this.id, 'displayProduct')">
+<label for="vehicle2"> Nut free</label><br>
+<input type="radio" id="vehicle3" name="vehicle1" value="LactoseFree"onclick="populateListProductChoices(this.id, 'displayProduct')">
+<label for="vehicle3"> Lactose free</label><br>
+<input type="radio" id="vehicle4" name="vehicle1" value="EasyFood"onclick="populateListProductChoices(this.id, 'displayProduct')">
+<label for="vehicle4"> Easy food</label><br>
+<input type="radio" id="vehicle5" name="vehicle1" value="FamilyPack"onclick="populateListProductChoices(this.id, 'displayProduct')">
+<label for="vehicle5"> Family pack</label><br>
+<input type="radio" id="vehicle6" name="vehicle1" value="None"onclick="populateListProductChoices(this.id, 'displayProduct')">
+<label for="vehicle6"> None</label><br>
+	<button class="tablinks" onclick="document.getElementById('products').click();">Next Step</button>
+</div>
+
+<div id="Products" class="tabcontent">
+	<button class="tablinks" onclick="document.getElementById('client').click();">Previous Step</button>
+  <h3>Your preferred products</h3>
+  <p>We preselected products based on your preferences.</p>
+	 Select items to buy:
+	 <div id="displayProduct"></div>
+	 <button class="tablinks" onclick="document.getElementById('cart').click();selectedItems()">Next Step</button>
+</div>
+
+<div id="Cart" class="tabcontent">
+	<button class="tablinks" onclick="document.getElementById('products').click();">Previous Step</button>
+  <h3>Cart</h3>
+  <p>Here is your cart.</p>
+  <div id="displayCart"></div>
+</div>
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+
+</html>
